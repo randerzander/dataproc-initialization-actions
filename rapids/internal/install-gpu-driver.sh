@@ -7,7 +7,8 @@ readonly GPU_DRIVER_URL=$(/usr/share/google/get_metadata_value attributes/gpu-dr
   echo -n "${DEFAULT_GPU_DRIVER_URL}")
 
 apt-get update
-DEBIAN_FRONTEND=noninteractive apt-get install -y pciutils "linux-headers-$(uname -r)"
+KERNEL_VERSION="$(uname -r | cut -d'-' -f1)"
+DEBIAN_FRONTEND=noninteractive apt-get install -y pciutils "linux-headers-$KERNEL_VERSION"
 
 wget --progress=dot:mega -O driver.run "${GPU_DRIVER_URL}"
 chmod +x "./driver.run"

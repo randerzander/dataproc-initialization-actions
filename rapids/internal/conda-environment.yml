@@ -1,20 +1,19 @@
 channels:
-  - rapidsai/label/xgboost
-  - rapidsai
+  - rapidsai-nightly
   - nvidia
   - conda-forge
 dependencies:
   - cudatoolkit=10.0
-  - dask-cuda=0.9.*
-  - cudf=0.9.*
-  - pyarrow=0.14.1
-  - arrow-cpp=0.14.1
-  - dask-cudf=0.9.*
-  - cuml=0.9.*
-  - dask-cuml=0.9.*
-  - cugraph=0.9.*
-  - rapidsai/label/xgboost::xgboost=0.90.*
+  - dask-cuda
+  - cudf=0.10
+  - dask-cudf
+  - cuml
+  - cugraph
   - rapidsai/label/xgboost::dask-xgboost=0.2.*
   - gcsfs
   - dill
   - ipykernel
+  - pip
+  - pip:
+    # https://xgboost-ci.net/blue/organizations/jenkins/xgboost/activity
+    - https://xgboost-ci.net/job/xgboost/job/master/lastSuccessfulBuild/artifact/python-package/dist/xgboost-1.0.0_SNAPSHOT-py2.py3-none-any.whl
